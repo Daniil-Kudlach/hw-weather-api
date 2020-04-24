@@ -15,6 +15,7 @@ body {
     display: flex;
     flex-direction: column;
     justify-content: space-around;
+    min-width: 600px;
 }
 
 .big-weather {
@@ -94,6 +95,11 @@ body {
     background-position: center;
     background-repeat: no-repeat;
     background-size: contain;
+    display: flex;
+    justify-content: center;
+    align-content: flex-end;
+    align-items: flex-end;
+    font-weight: bold;
 }
 
 .temp-big-card {
@@ -142,4 +148,9 @@ body {
     background-color: white;
     box-shadow: inset 0 0 10px 1px black;
     border-radius: 10px;
+}
+
+.header-big-card span{
+    font-size: xx-large;
+    font-weight: bold;
 }

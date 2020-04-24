@@ -113,15 +113,21 @@ function showBigWeather(w) {
     //         }
     //     }
     // });
-
-    dom.bigWeather.innerHTML = `<div class='header-big-card'><span>Lat: ${loc.latitude} Long:${loc.longitude}</span><span>${new Date(w.validTimeLocal).toLocaleString()}</span></div>
+    console.log(w)
+    dom.bigWeather.innerHTML = `<div class='header-big-card'><span>Lat: <small>${loc.latitude}</small> Long: <small>${loc.longitude}</small></span><span>${w.dayOfWeek}</span><span>${new Date(w.validTimeLocal).toLocaleString()}</span></div>
     <div class="block-main-big-card">
-    <div class='icon-big-card' style="background-image:url(https://doc.media.weather.com/products/icons/${w.iconCode}.png"></div>
+    <div class='icon-big-card' style="background-image:url(https://doc.media.weather.com/products/icons/${w.iconCode}.png">
+    <span>${w.cloudCoverPhrase}</span>
+    </div>
     <div class='temp-big-card'>${w.temperature}C&deg;</div>
     <div class="other-info-big-card">
     <span><b>Wind:</b> ${w.windSpeed}kph</span>
+    <span><b>Wind direction:</b> ${w.windDirectionCardinal}</span>
     <span><b>Precip:</b> ${w.precip1Hour} mm</span>
     <span><b>Pressure:</b> ${w.pressureAltimeter} mb</span>
+    <span><b>Temperature feels like:</b> ${w.temperatureFeelsLike}C&deg;</span>
+    <span><b>Sunrise:</b> ${new Date(w.sunriseTimeLocal).toLocaleString()}</span>
+    <span><b>Sunset:</b> ${new Date(w.sunsetTimeLocal).toLocaleString()}</span>
     </div>
     </div>
     `
@@ -154,7 +160,7 @@ function showWeather(ev) {
     dom.modal.classList.add('modal-active');
     dom.modal.innerHTML = `
     <div class="modal-card">
-    <div class='header-big-card'><span>Lat: ${loc.latitude} Long:${loc.longitude}</span><span>${card.dow}</span></div>
+    <div class='header-big-card'><span>Lat: <small>${loc.latitude}</small> Long: <small>${loc.longitude}</small></span><span>${card.dow}</span></div>
     <div class="block-main-big-card">
     <div class='icon-big-card' style="background-image:url(https://doc.media.weather.com/products/icons/${card.day.icon_code}.png"></div>
     <div class='temp-big-card'><span>Min: ${card.min_temp}C&deg;</span><span>Max: ${card.max_temp}C&deg;</span></div>
