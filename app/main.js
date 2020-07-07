@@ -41,23 +41,6 @@ function getCoords({
     return;
 }
 
-function tr(){
-    const body = JSON.stringify({password:"testtest", email:"email@mail.com"});
-    fetch('https://melytix.herokuapp.com/registration/',{
-      method: "POST",
-      headers:{"Content-Type":"application/json;charset=utf-8"},
-      body: body
-    })
-      .then(res => {
-        console.log(res.status);
-        return res.json();
-      })
-      .then(data => {
-        console.log(data);
-        return data;
-      });
-}
-
 function getWeather({
     latitude,
     longitude
@@ -194,5 +177,3 @@ function hideModal() {
     dom.modal.innerHTML = '';
     dom.modal.classList.remove('modal-active');
 }
-
-tr();
